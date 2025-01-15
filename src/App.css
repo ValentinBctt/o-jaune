@@ -1,38 +1,94 @@
-.App {
-  text-align: center;
+/* filepath: /home/valentinbctt/code/ValentinBctt/o-jaune/src/index.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  background-color: rgb(17, 17, 17);
+
+  overflow-x: hidden;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --jaune: #f5d821;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: var(--jaune);
+  font-size: 4rem;
+  margin: 0 1rem
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+p {
   color: white;
+  font-size: 1rem;
+  margin: 1rem 1rem
 }
 
-.App-link {
-  color: #61dafb;
+.video-background {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  z-index: -1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.navbar {
+  display: flex;
+  width: 80%; /* Ajustez cette valeur selon vos besoins */
+  height: 60px; /* Ajustez cette valeur selon vos besoins */
+  align-items: center;
+  margin: 2rem auto; /* Centrer horizontalement */
+  justify-content: center; /* Centrer le contenu à l'intérieur */
+  position: absolute; /* Positionner la navbar absolument */
+  top: 0; /* Ajustez cette valeur selon vos besoins */
+  left: 50%; /* Centrer horizontalement */
+  transform: translateX(-50%); /* Centrer horizontalement */
+  z-index: 1; /* Assurez-vous que la navbar est au-dessus de la vidéo */
+}
+
+.navbar ul {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px); /* Ajoute un effet de flou */
+  list-style: none;
+  margin: 0;
+  padding: 1rem 3rem;
+  border-radius: 3rem;
+}
+.navbar li {
+  color: var(--jaune);
+  padding: 0 15px; /* Ajoutez du padding pour espacer les éléments */
+  cursor: pointer;
+}
+
+.O-Jaune {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(30px);
+  width: 45%;
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white;
+
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.video-affiche {
+  width: 20rem;
 }
