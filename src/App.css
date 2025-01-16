@@ -3,6 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 @font-face {
   font-family: 'Octosquares';
   src: url('./assets/fonts/TT-Octosquares-Trial-DemiBold.ttf') format('truetype');
@@ -12,6 +14,11 @@
   font-family: 'SpaceMono';
   src: url('./assets/fonts/SpaceMono-Regular.ttf') format('truetype');
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: rgb(17, 17, 17);
 
@@ -274,7 +281,7 @@ p {
 }
 
 .soiree h4 {
-  margin: 0.3rem 0.5rem !important;
+  margin: 0rem 0.5rem !important;
 }
 
 .soiree p {
@@ -284,10 +291,10 @@ p {
 
 .soiree {
   width: 16rem;
-  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-  margin-bottom: 1rem;
+  padding: 0rem 0.5rem 0.5rem 0.5rem;
+
   border-radius: 10px;
-  transition: background-color 0.2s ease, color 0.2s ease; /* Effet de transition */
+  transition: background-color 0.2s ease;
 
   &:hover {
     background-color: var(--jaune);
@@ -315,21 +322,126 @@ p {
 }
 
 .selected-soiree-photos {
-  grid-column: 2 / 3;
 
-
-  gap: 1rem; /* Ajoute un espace entre les images */
+  z-index: 1;
+  margin-bottom: 2rem;
 }
-
 .selected-soiree-photos img {
   width: 100%;
   height: 10rem;
   object-fit: cover;
   border-radius: 0.5rem; /* Ajoute des coins arrondis aux images */
-  transition: transform 0.2s ease; /* Effet de transition */
+  transition: transform 0.5s ease; /* Effet de transition */
   margin-bottom: 10px;
 
   &:hover {
-    transform: scale(1.05); /* Agrandir l'image */
+    transform: scale(1.2); /* Agrandir l'image */
   }
+}
+
+/* Personnalisation de la barre de défilement */
+.selected-soiree-photos {
+  overflow-x: scroll;  /* Défilement horizontal */
+  overflow-y: hidden;  /* Empêche le défilement vertical */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* Ajoute le snap scrolling */
+}
+
+.selected-soiree-photos img {
+  scroll-snap-align: start; /* Aligne chaque image au début du conteneur */
+}
+
+/* Personnalisation du scrollbar */
+.selected-soiree-photos::-webkit-scrollbar {
+  height: 12px; /* Hauteur de la barre de défilement (horizontal) */
+  width: 12px; /* Largeur de la barre de défilement (vertical) */
+}
+
+/* Personnalisation de la partie "thumb" de la barre de défilement */
+.selected-soiree-photos::-webkit-scrollbar-thumb {
+  background-color: var(--jaune); /* Couleur de la barre de défilement */
+  border-radius: 10px; /* Coins arrondis de la barre */
+
+}
+
+/* Personnalisation de la partie "track" de la barre de défilement */
+.selected-soiree-photos::-webkit-scrollbar-track {
+  background: #1e1e1e; /* Couleur de l'arrière-plan de la barre */
+  border-radius: 10px; /* Coins arrondis du rail */
+}
+
+/* Personnalisation du hover (au survol de la barre de défilement) */
+.selected-soiree-photos::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Change la couleur du thumb au survol */
+}
+
+
+.awssld {
+  height: 70vh; /* Forcing the slider to take up the full height of the viewport */
+  display: flex;
+  flex-direction: column; /* Align items vertically */
+  background-color: transparent !important; /* Enlever la couleur de fond */
+  border-radius: 10px; /* Ajouter un border radius */
+}
+
+.awssld__wrapper {
+  display: flex;
+  flex-direction: column; /* Align slides vertically */
+  border-radius: 10px; /* Ajouter un border radius */
+}
+
+.awssld__slide {
+  height: 70vh; /* Each slide takes up the full height */
+  border-radius: 10px; /* Ajouter un border radius */
+}
+
+.awssld__content {
+  display: flex;
+  align-items: center; /* Vertically align content */
+  justify-content: center; /* Horizontally align content */
+  border-radius: 10px; /* Ajouter un border radius */
+  background-color: transparent !important; /* Enlever la couleur de fond */
+}
+
+.awssld {
+  --content-bckground-color: transparent !important; /* Couleur de fond du contenu */
+}
+/* Changer la couleur des points */
+.awssld__dots {
+  bottom: 10px; /* Optionnel : ajuster la position des points */
+}
+
+.awssld__dot {
+  background-color: #3498db !important; /* Changer la couleur des points */
+  width: 6px !important; /* Changer la taille des points */
+  height: 6px !important; /* Changer la taille des points */
+  border-radius: 50% !important; /* Garder la forme ronde des points */
+  margin: 0 8px 1rem 0 !important; /* Ajuster l'espacement entre les points */
+  transition: all 0.3s ease; /* Ajouter une animation de transition */
+}
+
+.awssld__bullets button {
+  width: 6px !important;
+  height: 6px !important;
+  margin-bottom: 3rem!important;
+}
+/* Changer la couleur du point actif (lorsqu'il est sélectionné) */
+.awssld__bullets .awssld__bullets--active  {
+  background-color: var(--jaune) !important; /* Couleur du point actif */
+  transform: scale(1.5); /* Agrandir le point actif */
+}
+
+
+
+.awssld__controls__arrow-left, .awssld__controls__arrow-right {
+  height: 20px!important;
+  margin: 0 1rem!important;
+
+    &:hover soiree {
+      background-color: var(--jaune);
+    }
+}
+
+.awssld__controls button {
+  width: 15%!important;
 }
