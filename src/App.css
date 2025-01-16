@@ -3,7 +3,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Octosquares';
+  src: url('./assets/fonts/TT-Octosquares-Trial-DemiBold.ttf') format('truetype');
+}
 
+@font-face {
+  font-family: 'SpaceMono';
+  src: url('./assets/fonts/SpaceMono-Regular.ttf') format('truetype');
+}
 body {
   background-color: rgb(17, 17, 17);
 
@@ -12,15 +20,55 @@ body {
 
 :root {
   --jaune: #f5d821;
+  --jaune-fonce: #9d8a0c;
+  --bg: rgb(17, 17, 17)
 }
 
 h1 {
+  font-family: 'Octosquares';
   color: var(--jaune);
   font-size: 4rem;
   margin: 0 1rem
 }
 
+h2 {
+  font-family: 'Octosquares';
+  color: rgb(17, 17, 17);
+  text-shadow:
+  1px 1px 0px var(--jaune),   /* Ombre en haut à gauche */
+  -1px 1px 0px var(--jaune),  /* Ombre en bas à gauche */
+  1px -1px 0px var(--jaune),  /* Ombre en haut à droite */
+  -1px -1px 0px var(--jaune); /* Ombre en bas à droite */
+  font-size: 3rem;
+  margin: 1rem 1rem;
+}
+
+
+/* Ajout du compteur de lettres en bas de la div */
+.letter-counter {
+  color: var(--jaune);
+  font-size: 0.8rem;
+  text-align: right;
+  margin: 0.5rem 1rem;
+}
+
+
+h3 {
+  font-family: 'SpaceMono';
+  color: var(--jaune);
+  font-size: 2rem;
+  margin: 3rem 1rem 1rem 1rem;
+}
+
+h4 {
+  font-family: 'SpaceMono';
+  color: white;
+  font-size: 1.5rem;
+  margin: 1rem 1rem;
+}
+
 p {
+  font-family: 'SpaceMono';
   color: white;
   font-size: 1rem;
   margin: 1rem 1rem
@@ -68,27 +116,220 @@ p {
   margin: 0;
   padding: 1rem 3rem;
   border-radius: 3rem;
+  gap: 0.5rem;
 }
 .navbar li {
+  font-family: "SpaceMono";
+  font-weight: 300;
   color: var(--jaune);
   padding: 0 15px; /* Ajoutez du padding pour espacer les éléments */
   cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: -5px; /* Ajustez cette valeur selon vos besoins */
+    left: 0;
+    width: 0;
+    height: 1.5px; /* Ajustez cette valeur selon vos besoins */
+    background-color: var(--jaune);
+    transition: width 0.3s ease;
+  }
+
+  &:hover {
+    color: var(--jaune-fonce);
+
+    &:before {
+      width: 100%;
+    }
+  }
 }
 
 .O-Jaune {
   background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(30px);
   width: 45%;
-  position: absolute;
-  top: 50%;
-  left: 25%;
-  transform: translate(-50%, -50%);
+  margin: 3rem auto 3rem 3rem; ;
   color: white;
-
+  z-index: 4;
   padding: 1rem;
   border-radius: 1rem;
 }
 
+.event {
+  background-image: url("./assets/anneautore.png");
+  background-position: center; /* Centrer l'image */
+  background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+  background-size: 125%; /* Agrandir encore le background size */
+  height: 100vh; /* Faire en sorte que l'élément prenne toute la hauteur de l'écran */
+}
+
+.event a {
+  margin: 1rem auto 2rem auto;
+  font-family: 'SpaceMono';
+  color: var(--jaune);
+  border: solid 2px var(--jaune);
+  background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
+
+  padding: 0.8rem 0.8rem;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  grid-column: 1 / -1; /* S'étendre sur les deux colonnes */
+  justify-self: center; /* Centrer horizontalement */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Effet de transition */
+
+  &:hover{
+    background-image: none;
+    background-color: var(--jaune);
+    color: var(--bg);
+    border: solid 2px var(--bg);
+      box-shadow: 4px 4px 0px var(--jaune); /* Grande ombre pleine */
+
+  }
+  &:active {
+    transform: scale(0.97); /* Réduire la taille de l'élément */
+  }
+}
+
+
+.event-content {
+  background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
+  width: 55%;
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  margin: 1rem auto;
+  box-shadow: 1px 3px 4px rgba(245, 216, 33, 0.3); /* Ombre */
+}
+
+.event-content p {
+  padding: auto 1rem auto 1rem;
+  font-size: 0.8rem;
+  grid-column: 2 / 3;
+}
+
 .video-affiche {
-  width: 20rem;
+  width: 15rem;
+  padding: 4rem 1rem 0 2rem;
+
+  grid-column: 1 / 2;
+}
+
+.video-affiche video {
+  border-radius: 10px;
+}
+
+.contact {
+
+  border-radius: 10px;
+  margin: 8rem auto 2rem auto;
+  width: 70%;
+
+  padding-bottom: 3rem;
+  padding-left: 2rem;
+}
+
+.contact a {
+  font-family: 'SpaceMono';
+  color: var(--jaune);
+  padding: 0.8rem 0.8rem;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  grid-column: 1 / -1; /* S'étendre sur les deux colonnes */
+  justify-self: center; /* Centrer horizontalement */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Effet de transition */
+  padding-left: 3rem;
+
+  &:hover {
+    color: var(--jaune-fonce);
+  }
+
+}
+
+.nos-soirees {
+  margin-top: 5rem;
+}
+
+.nos-soirees h2 {
+  display: flex;
+  justify-content: center;
+}
+
+.soirees {
+  margin: 1rem auto 2rem auto;
+  width: 80%;
+  border-radius: 20px;
+  background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
+  box-shadow: 1px 3px 4px rgba(245, 216, 33, 0.3); /* Ombre */
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+.soiree h4 {
+  margin: 0.3rem 0.5rem !important;
+}
+
+.soiree p {
+  margin: 0.3rem 0.5rem !important;
+  padding-top: 0.7rem;
+}
+
+.soiree {
+  width: 16rem;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Effet de transition */
+
+  &:hover {
+    background-color: var(--jaune);
+  }
+
+  &:hover p {
+    color: var(--bg);
+  }
+
+  &:hover h4 {
+    color: var(--bg);
+  }
+}
+
+.affiche-d {
+  display: flex;
+  padding: 0 auto;
+  width: 13rem;
+  justify-content: center;
+  margin: 0 auto; /* Centrer horizontalement */
+}
+
+.soiree-list {
+  grid-column: 1 / 2;
+}
+
+.selected-soiree-photos {
+  grid-column: 2 / 3;
+
+
+  gap: 1rem; /* Ajoute un espace entre les images */
+}
+
+.selected-soiree-photos img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.5rem; /* Ajoute des coins arrondis aux images */
+  transition: transform 0.2s ease; /* Effet de transition */
+  margin-bottom: 10px;
+
+  &:hover {
+    transform: scale(1.05); /* Agrandir l'image */
+  }
 }

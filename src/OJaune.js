@@ -1,3 +1,5 @@
+import { Reveal } from "./Reveal";
+
 export function OJaune() {
   return (
     <div>
@@ -9,8 +11,9 @@ export function OJaune() {
           />
           Your browser does not support the video tag.
         </video>
+        <Reveal>
         <div className="O-Jaune">
-          <h1>O-Jaune</h1>
+          <h1>O-JAUNE</h1>
           <p>
           Composée d’acteurs de l’évènementiel et du spectacle, tels que producteurs, light designers
           et beatmakers, O-Jaune est une association engagée dans la promotion de la scène musicale
@@ -23,6 +26,7 @@ export function OJaune() {
           Avec audace et passion, O-Jaune contribue au rayonnement culturel de Bordeaux.
                     </p>
         </div>
+        </Reveal>
       </div>
     </div>
   );
