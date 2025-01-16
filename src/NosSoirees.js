@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
+import { ScrambleText } from "./Reveal";
 
 const distortion3Images = [
   "https://res.cloudinary.com/dnojcwwos/image/upload/q_40/v1737029454/IMG_2747-2_tliicf.jpg",
@@ -85,9 +86,11 @@ export function NosSoirees() {
     document.body.style.overflow = 'auto'; // Rétablit le défilement vertical global
   };
 
+  const title = ["Nos Soirées"];
+
   return (
     <div className="nos-soirees">
-      <h2>Nos Soirées</h2>
+      <h2><ScrambleText texts={title} as="h2" className="titles text-center" /></h2>
       <div className="soirees">
       <div className="soiree-list">
         <AwesomeSlider onTransitionEnd={(event) => handleSelectSoiree(soirées[event.currentIndex])}>

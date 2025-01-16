@@ -81,6 +81,13 @@ p {
   margin: 1rem 1rem
 }
 
+.titles {
+  font-family: 'SpaceMono';
+  color: var(--jaune);
+  font-size: 2rem;
+  margin: 3rem 1rem 1rem 1rem;
+}
+
 .video-background {
   position: relative;
   top: 0;
@@ -353,7 +360,7 @@ p {
 
 /* Personnalisation du scrollbar */
 .selected-soiree-photos::-webkit-scrollbar {
-  height: 12px; /* Hauteur de la barre de défilement (horizontal) */
+  height: 8px; /* Hauteur de la barre de défilement (horizontal) */
   width: 12px; /* Largeur de la barre de défilement (vertical) */
 }
 

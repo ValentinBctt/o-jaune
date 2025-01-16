@@ -1,6 +1,11 @@
 import { Reveal } from "./Reveal";
+import { ScrambleText } from "./Reveal";
 
 export function OJaune() {
+
+  const title = ["O-Jaune"];
+
+
   return (
     <div>
       <div className="video-background">
@@ -13,7 +18,7 @@ export function OJaune() {
         </video>
         <Reveal>
         <div className="O-Jaune">
-          <h1>O-JAUNE</h1>
+          <h1><ScrambleText texts={title} as="h2" className="titles text-center" /></h1>
           <p>
           Composée d’acteurs de l’évènementiel et du spectacle, tels que producteurs, light designers
           et beatmakers, O-Jaune est une association engagée dans la promotion de la scène musicale

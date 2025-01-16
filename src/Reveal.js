@@ -2,6 +2,7 @@ import { useRef, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useAnimation, motion } from 'framer-motion';
 import { useState } from 'react';
+import TextScramble from '@twistezo/react-text-scramble'
 
 export const Reveal = ({ children, width = "fit-content" }) => {
   const ref = useRef(null);
@@ -284,43 +285,32 @@ export const RevealIcon = ({ children, width = "fit-content" }) => {
 };
 
 
-export const RevealImages = ({ images, width = "100%", columns = 3 }) => {
-  const ref = useRef(null);
-  const { ref: inViewRef, inView: isInView } = useInView(ref, { triggerOnce: true });
-  const controls = useAnimation();
+
+export const ScrambleText = ({ texts = [] }) => {
+  const [hasPlayed, setHasPlayed] = useState(false);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start((i) => ({
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, delay: i * 0.3 },
-      }));
+    if (texts.length > 0 && !hasPlayed) {
+      const animationDuration = texts[0].length * 400; // Calcul basé sur la vitesse
+      const timeout = setTimeout(() => {
+        setHasPlayed(true); // Marquer comme terminé après une exécution
+      }, animationDuration);
+
+      return () => clearTimeout(timeout);
     }
-  }, [isInView, controls]);
+  }, [texts, hasPlayed]);
 
-  const columnWrapper = Array.from({ length: columns }, () => []);
-
-  images.forEach((src, index) => {
-    columnWrapper[index % columns].push(
-      <motion.img
-        key={index}
-        src={src}
-        custom={index}
-        initial={{ opacity: 0, y: 50 }}
-        animate={controls}
-        className='selected-soiree-photos img'
-      />
-    );
-  });
+  if (texts.length === 0) {
+    return null; // Retourner un fallback si aucune donnée n'est disponible
+  }
 
   return (
-    <div ref={inViewRef} className='selected-soiree-photos' style={{ display: 'flex', width: width }}>
-      {columnWrapper.map((column, index) => (
-        <div key={index} style={{ flex: 1 }}>
-          {column}
-        </div>
-      ))}
-    </div>
+    <TextScramble
+      texts={texts}
+      textIndex={0} // Toujours afficher le premier texte
+      characters="abcdefghijklmnopqrstuvwxyz!?,."
+      speed={400} // Vitesse de scrambling
+      pauseTime={0} // Pas de pause, l'animation s'arrête naturellement
+    />
   );
 };

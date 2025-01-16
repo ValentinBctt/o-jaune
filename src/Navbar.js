@@ -1,3 +1,5 @@
+import { ScrambleText } from "./Reveal";
+
 export function Navbar() {
   const handleScroll = (event, id) => {
     event.preventDefault();

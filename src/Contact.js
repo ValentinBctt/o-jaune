@@ -2,13 +2,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { RevealBot } from './Reveal';
-
+import { ScrambleText } from "./Reveal";
 export function Contact() {
+
+  const title = ["Contact"];
   return (
-    
+
     <RevealBot>
     <div className="contact">
-      <h2>Contact</h2>
+      <h2><ScrambleText texts={title} as="h2" className="titles text-center" /></h2>
       <ul>
         <li>
           <a href="https://www.instagram.com/_ojaune_/">
