@@ -3,6 +3,7 @@ import { useState } from 'react';
 import AwesomeSlider from 'react-awesome-slider';
 import 'react-awesome-slider/dist/styles.css';
 import { ScrambleText } from "./Reveal";
+import { RevealRight } from "./Reveal";
 
 const distortion3Images = [
   "https://res.cloudinary.com/dnojcwwos/image/upload/q_40/v1737029454/IMG_2747-2_tliicf.jpg",
@@ -91,6 +92,7 @@ export function NosSoirees() {
   return (
     <div className="nos-soirees">
       <h2><ScrambleText texts={title} as="h2" className="titles text-center" /></h2>
+      <RevealRight>
       <div className="soirees">
       <div className="soiree-list">
         <AwesomeSlider onTransitionEnd={(event) => handleSelectSoiree(soirées[event.currentIndex])}>
@@ -105,6 +107,7 @@ export function NosSoirees() {
         ))}
         </AwesomeSlider>
       </div>
+
 
       <div
         className="selected-soiree-photos"
@@ -137,6 +140,8 @@ export function NosSoirees() {
         ))}
       </div>
       </div>
+      </RevealRight>
     </div>
+
     );
 }

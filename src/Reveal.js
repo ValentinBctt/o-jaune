@@ -285,32 +285,28 @@ export const RevealIcon = ({ children, width = "fit-content" }) => {
 };
 
 
-
 export const ScrambleText = ({ texts = [] }) => {
+  const [scramble, setScramble] = useState(false);
   const [hasPlayed, setHasPlayed] = useState(false);
+  const { ref: inViewRef, inView: isInView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    if (texts.length > 0 && !hasPlayed) {
-      const animationDuration = texts[0].length * 400; // Calcul basé sur la vitesse
-      const timeout = setTimeout(() => {
-        setHasPlayed(true); // Marquer comme terminé après une exécution
-      }, animationDuration);
-
-      return () => clearTimeout(timeout);
+    if (isInView && !hasPlayed) {
+      setScramble(true);
+      setHasPlayed(true);
     }
-  }, [texts, hasPlayed]);
-
-  if (texts.length === 0) {
-    return null; // Retourner un fallback si aucune donnée n'est disponible
-  }
+  }, [isInView, hasPlayed]);
 
   return (
-    <TextScramble
-      texts={texts}
-      textIndex={0} // Toujours afficher le premier texte
-      characters="abcdefghijklmnopqrstuvwxyz!?,."
-      speed={400} // Vitesse de scrambling
-      pauseTime={0} // Pas de pause, l'animation s'arrête naturellement
-    />
+    <div ref={inViewRef}>
+      <TextScramble
+        texts={texts}
+        play={scramble}
+        letterSpeed={1}
+        nextLetterSpeed={200} // Adjust speed for letter by letter effect
+        step={1} // Ensure it scrambles one letter at a time
+        paused={!hasPlayed}
+      />
+    </div>
   );
 };

@@ -25,6 +25,12 @@ body {
   overflow-x: hidden;
 }
 
+::selection {
+  background: var(--jaune);
+  color: var(--bg);
+}
+
+
 :root {
   --jaune: #f5d821;
   --jaune-fonce: #9d8a0c;
@@ -177,7 +183,7 @@ p {
   background-position: center; /* Centrer l'image */
   background-repeat: no-repeat; /* Empêcher la répétition de l'image */
   background-size: 125%; /* Agrandir encore le background size */
-  height: 100vh; /* Faire en sorte que l'élément prenne toute la hauteur de l'écran */
+
 }
 
 .event a {
@@ -188,7 +194,7 @@ p {
   background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
 
   padding: 0.8rem 0.8rem;
-  border-radius: 20px;
+  border-radius: 10px;
   text-align: center;
   text-decoration: none;
   grid-column: 1 / -1; /* S'étendre sur les deux colonnes */
@@ -212,7 +218,7 @@ p {
 .event-content {
   background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
   width: 55%;
-  border-radius: 20px;
+  border-radius: 10px;
   display: grid;
   grid-template-columns: auto 1fr;
 
@@ -237,11 +243,14 @@ p {
   border-radius: 10px;
 }
 
+
+
 .contact {
 
-  border-radius: 10px;
-  margin: 8rem auto 2rem auto;
-  width: 70%;
+
+  margin: 2rem auto 2rem auto;
+  width: 50%;
+  box-shadow: 10.67px 0 var(--bg), -10.67px 0 var(--bg), 0 -10.67px var(--bg), 0 10.67px var(--bg), 2.67px 0 0 5.33px var(--bg), -2.67px 0 0 5.33px var(--bg), 0 -2.67px 0 5.33px var(--bg), 0 2.67px 0 5.33px var(--bg), 13.33px 0 var(--jaune), -13.33px 0 var(--jaune), 0 -13.33px var(--jaune), 0 13.33px var(--jaune), 0 0 0 8px var(--jaune), 0 5.33px 0 5.33px var(--jaune), 0 -5.33px 0 5.33px var(--jaune), 5.33px 0 0 5.33px var(--jaune), -5.33px 0 0 5.33px var(--jaune);
 
   padding-bottom: 3rem;
   padding-left: 2rem;
@@ -266,7 +275,7 @@ p {
 }
 
 .nos-soirees {
-  margin-top: 5rem;
+  margin-top: 2rem;
 }
 
 .nos-soirees h2 {
@@ -277,7 +286,7 @@ p {
 .soirees {
   margin: 1rem auto 2rem auto;
   width: 80%;
-  border-radius: 20px;
+  border-radius: 10px;
   background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
   box-shadow: 1px 3px 4px rgba(245, 216, 33, 0.3); /* Ombre */
   padding: 1.5rem;
