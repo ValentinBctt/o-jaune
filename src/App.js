@@ -1,4 +1,5 @@
 import "./App.css";
+import "./Mobile.css";
 import React from 'react';
 import { Navbar } from './Navbar';
 import { OJaune } from './OJaune';

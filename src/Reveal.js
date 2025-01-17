@@ -303,9 +303,10 @@ export const ScrambleText = ({ texts = [] }) => {
         texts={texts}
         play={scramble}
         letterSpeed={1}
-        nextLetterSpeed={200} // Adjust speed for letter by letter effect
+        nextLetterSpeed={90} // Adjust speed for letter by letter effect
         step={1} // Ensure it scrambles one letter at a time
         paused={!hasPlayed}
+        maxLength={Math.max(...texts.map(text => text.length))} // Ensure it doesn't exceed the length of the longest word
       />
     </div>
   );

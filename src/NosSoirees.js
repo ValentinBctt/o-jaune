@@ -91,8 +91,8 @@ export function NosSoirees() {
 
   return (
     <div className="nos-soirees">
-      <h2><ScrambleText texts={title} as="h2" className="titles text-center" /></h2>
-      <RevealRight>
+      <h2>Nos Soirees</h2>
+
       <div className="soirees">
       <div className="soiree-list">
         <AwesomeSlider onTransitionEnd={(event) => handleSelectSoiree(soirées[event.currentIndex])}>
@@ -140,7 +140,7 @@ export function NosSoirees() {
         ))}
       </div>
       </div>
-      </RevealRight>
+
     </div>
 
     );

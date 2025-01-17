@@ -34,7 +34,8 @@ body {
 :root {
   --jaune: #f5d821;
   --jaune-fonce: #9d8a0c;
-  --bg: rgb(17, 17, 17);
+  --bg: rgb(25, 25, 25);
+
   --pixel:  10.67px 0 var(--bg), -10.67px 0 var(--bg), 0 -10.67px var(--bg), 0 10.67px var(--bg), 2.67px 0 0 5.33px var(--bg), -2.67px 0 0 5.33px var(--bg), 0 -2.67px 0 5.33px var(--bg), 0 2.67px 0 5.33px var(--bg), 13.33px 0 var(--jaune), -13.33px 0 var(--jaune), 0 -13.33px var(--jaune), 0 13.33px var(--jaune), 0 0 0 8px var(--jaune), 0 5.33px 0 5.33px var(--jaune), 0 -5.33px 0 5.33px var(--jaune), 5.33px 0 0 5.33px var(--jaune), -5.33px 0 0 5.33px var(--jaune);
   --gradient-box: linear-gradient(to bottom, #111111, #151515, #181818, #1c1c1c, #1f1f1f);
 }
@@ -138,8 +139,13 @@ p {
   margin: 0;
   padding: 1rem 3rem;
   border-radius: 3rem;
-  gap: 0.5rem;
+  gap: 1rem;
+  height: 100%;
+  width: 70%;
+  z-index: -1;
+  justify-content: center; /* Centrer les éléments horizontalement */
 }
+
 .navbar li {
   font-family: "SpaceMono";
   font-weight: 300;
@@ -148,26 +154,74 @@ p {
   cursor: pointer;
   position: relative;
   transition: color 0.3s ease;
+}
 
-  &:before {
-    content: "";
-    position: absolute;
-    bottom: -5px; /* Ajustez cette valeur selon vos besoins */
-    left: 0;
-    width: 0;
-    height: 1.5px; /* Ajustez cette valeur selon vos besoins */
-    background-color: var(--jaune);
-    transition: width 0.3s ease;
-  }
+.navbar li:hover::before {
+  content: '▶';
+  color: var(--jaune);
+  position: absolute;
+  left: -5%; /* Position 5 pixels to the left */
+  font-size: 1rem; /* Adjust the size as needed */
+}
 
-  &:hover {
-    color: var(--jaune-fonce);
+.hamburger {
 
-    &:before {
-      width: 100%;
-    }
+  color: var(--jaune);
+
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: none; /* Masqué par défaut */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+@media (max-width: 1200px) {
+  .navbar ul{
+    gap: 1rem;
+
+    width: 90%;
   }
 }
+
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block; /* Affiché sur les petits écrans */
+    font-family: "SpaceMono";
+    font-size: rem;
+  }
+
+  .navbar ul {
+    display: none; /* Masqué par défaut sur les petits écrans */
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 25rem;
+    width: 250px;
+    margin-top: 0.5rem;
+
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    padding: 2rem;
+    border-radius: 0; /* Supprimez les coins arrondis pour le menu mobile */
+  }
+
+  .navbar ul.open {
+    display: flex; /* Affiché lorsque le menu est ouvert */
+    transform: translateX(0);
+  }
+
+  .navbar ul li {
+    font-size: 1.5rem;
+    display: block;
+    text-align: center;
+    padding: 1rem 0; /* Ajoutez du padding pour espacer les éléments */
+  }
+}
+
 
 .O-Jaune {
   background-color: rgba(0, 0, 0, 0.5);
@@ -249,11 +303,11 @@ p {
 
 .contact {
 
-
-  margin: 2rem auto 2rem auto;
+  background-color: var(--bg);
+  margin: 4rem auto 2rem auto;
   width: 50%;
   box-shadow: var(--pixel);
-  padding-bottom: 3rem;
+  padding-bottom: 1rem;
   padding-left: 2rem;
 }
 
@@ -269,6 +323,7 @@ p {
   transition: transform 0.2s ease, box-shadow 0.2s ease; /* Effet de transition */
   padding-left: 3rem;
 
+
   &:hover {
     &:hover::before {
       content: '▶';
@@ -279,6 +334,10 @@ p {
     }
   }
 
+}
+
+.contact li {
+  margin-bottom: 1rem;
 }
 
 .nos-soirees {
@@ -400,7 +459,7 @@ p {
 
 
 .awssld {
-  height: 70vh; /* Forcing the slider to take up the full height of the viewport */
+  height: 100%; /* Forcing the slider to take up the full height of the viewport */
   display: flex;
   flex-direction: column; /* Align items vertically */
   background-color: transparent !important; /* Enlever la couleur de fond */
@@ -414,7 +473,7 @@ p {
 }
 
 .awssld__slide {
-  height: 70vh; /* Each slide takes up the full height */
+  height: 100%; /* Each slide takes up the full height */
   border-radius: 10px; /* Ajouter un border radius */
 }
 
@@ -446,7 +505,7 @@ p {
 .awssld__bullets button {
   width: 6px !important;
   height: 6px !important;
-  margin-bottom: 3rem!important;
+  margin-bottom: 2rem!important;
 }
 /* Changer la couleur du point actif (lorsqu'il est sélectionné) */
 .awssld__bullets .awssld__bullets--active  {
