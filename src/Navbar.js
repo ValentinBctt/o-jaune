@@ -18,7 +18,6 @@ export function Navbar() {
         <li><a href="#o-jaune" onClick={(e) => handleScroll(e, '#o-jaune')}><ScrambleText texts={oJaune} as="h2" className="titles text-center" /></a></li>
         <li><a href="#prochain-event" onClick={(e) => handleScroll(e, '#prochain-event')}><ScrambleText texts={prochainEvent} as="h2" className="titles text-center" /></a></li>
         <li><a href="#nos-soirees" onClick={(e) => handleScroll(e, '#nos-soirees')}><ScrambleText texts={nosSoirees} as="h2" className="titles text-center" /></a></li>
-        <li><a href="#artistes" onClick={(e) => handleScroll(e, '#artistes')}><ScrambleText texts={artistes} as="h2" className="titles text-center" /></a></li>
         <li><a href="#contact" onClick={(e) => handleScroll(e, '#contact')}><ScrambleText texts={contact} as="h2" className="titles text-center" /></a></li>
       </ul>
     </div>

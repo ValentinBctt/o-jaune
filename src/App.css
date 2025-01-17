@@ -34,7 +34,9 @@ body {
 :root {
   --jaune: #f5d821;
   --jaune-fonce: #9d8a0c;
-  --bg: rgb(17, 17, 17)
+  --bg: rgb(17, 17, 17);
+  --pixel:  10.67px 0 var(--bg), -10.67px 0 var(--bg), 0 -10.67px var(--bg), 0 10.67px var(--bg), 2.67px 0 0 5.33px var(--bg), -2.67px 0 0 5.33px var(--bg), 0 -2.67px 0 5.33px var(--bg), 0 2.67px 0 5.33px var(--bg), 13.33px 0 var(--jaune), -13.33px 0 var(--jaune), 0 -13.33px var(--jaune), 0 13.33px var(--jaune), 0 0 0 8px var(--jaune), 0 5.33px 0 5.33px var(--jaune), 0 -5.33px 0 5.33px var(--jaune), 5.33px 0 0 5.33px var(--jaune), -5.33px 0 0 5.33px var(--jaune);
+  --gradient-box: linear-gradient(to bottom, #111111, #151515, #181818, #1c1c1c, #1f1f1f);
 }
 
 h1 {
@@ -216,14 +218,14 @@ p {
 
 
 .event-content {
-  background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
+  background-color: var(--bg);
   width: 55%;
-  border-radius: 10px;
+
   display: grid;
   grid-template-columns: auto 1fr;
 
   margin: 1rem auto;
-  box-shadow: 1px 3px 4px rgba(245, 216, 33, 0.3); /* Ombre */
+  box-shadow: var(--pixel)
 }
 
 .event-content p {
@@ -250,8 +252,7 @@ p {
 
   margin: 2rem auto 2rem auto;
   width: 50%;
-  box-shadow: 10.67px 0 var(--bg), -10.67px 0 var(--bg), 0 -10.67px var(--bg), 0 10.67px var(--bg), 2.67px 0 0 5.33px var(--bg), -2.67px 0 0 5.33px var(--bg), 0 -2.67px 0 5.33px var(--bg), 0 2.67px 0 5.33px var(--bg), 13.33px 0 var(--jaune), -13.33px 0 var(--jaune), 0 -13.33px var(--jaune), 0 13.33px var(--jaune), 0 0 0 8px var(--jaune), 0 5.33px 0 5.33px var(--jaune), 0 -5.33px 0 5.33px var(--jaune), 5.33px 0 0 5.33px var(--jaune), -5.33px 0 0 5.33px var(--jaune);
-
+  box-shadow: var(--pixel);
   padding-bottom: 3rem;
   padding-left: 2rem;
 }
@@ -269,7 +270,13 @@ p {
   padding-left: 3rem;
 
   &:hover {
-    color: var(--jaune-fonce);
+    &:hover::before {
+      content: '▶';
+      color: var(--jaune);
+      position: absolute;
+      left: 29%; /* Position 5 pixels to the left */
+      font-size: 1rem; /* Adjust the size as needed */
+    }
   }
 
 }
@@ -286,9 +293,9 @@ p {
 .soirees {
   margin: 1rem auto 2rem auto;
   width: 80%;
-  border-radius: 10px;
-  background-image: linear-gradient(to right top, #0c0c0c, #101010, #131313, #161616, #181818);
-  box-shadow: 1px 3px 4px rgba(245, 216, 33, 0.3); /* Ombre */
+
+  background-color: var(--bg);
+  box-shadow: var(--pixel);
   padding: 1.5rem;
   display: grid;
   grid-template-columns: 0.5fr 1.5fr;
