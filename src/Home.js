@@ -2,10 +2,10 @@ export function Home() {
   return (
     <div className="video-background">
       <video autoPlay muted loop className="video-large">
-        <source src="./assets/o-jaune-home.mkv" type="video/mp4" />
+        <source src="./assets/o-jaune-home.mp4" type="video/mp4" />
       </video>
       <video autoPlay muted loop className="video-small">
-        <source src="./assets/o-jaune-home-2.mkv" type="video/mp4" />
+        <source src="./assets/o-jaune-home-2.mp4" type="video/mp4" />
       </video>
       <style jsx>{`
         .video-large {
