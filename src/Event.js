@@ -34,7 +34,7 @@ export function Event() {
               </p>
             </div>
             <a href="https://shotgun.live/fr/events/distorsion-3" target="_blank" rel="noreferrer">
-              Prend tes places
+              Prends tes places
             </a>
           </div>
         </Reveal>
