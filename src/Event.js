@@ -14,7 +14,7 @@ export function Event() {
           <div className="event-content">
             <div className="video-affiche">
               <video autoPlay muted loop>
-                <source src="./assets/affiche1.mkv" type="video/mp4" />
+                <source src="./assets/affiche1.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="affiche-content">
