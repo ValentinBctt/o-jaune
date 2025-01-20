@@ -11,7 +11,7 @@ export function OJaune() {
       <div className="video-background">
         <video autoPlay muted loop>
           <source
-            src="./assets/DISTORSION PROPA FILM v2.MOV"
+            src="https://res.cloudinary.com/dnojcwwos/video/upload/v1737365383/DISTORSION_PROPA_FILM_v2_ezs4m1.mov"
             type="video/mp4"
           />
           Your browser does not support the video tag.
