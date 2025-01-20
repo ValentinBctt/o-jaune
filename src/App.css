@@ -435,15 +435,14 @@ p {
 
 /* Personnalisation du scrollbar */
 .selected-soiree-photos::-webkit-scrollbar {
-  height: 8px; /* Hauteur de la barre de défilement (horizontal) */
-  width: 12px; /* Largeur de la barre de défilement (vertical) */
+  height: 4px; /* Hauteur de la barre de défilement (horizontal) */
+  width: 10px; /* Largeur de la barre de défilement (vertical) */
 }
 
 /* Personnalisation de la partie "thumb" de la barre de défilement */
 .selected-soiree-photos::-webkit-scrollbar-thumb {
-  background-color: var(--jaune); /* Couleur de la barre de défilement */
+  background-color: #f5d821; /* Couleur de la barre de défilement */
   border-radius: 10px; /* Coins arrondis de la barre */
-
 }
 
 /* Personnalisation de la partie "track" de la barre de défilement */
