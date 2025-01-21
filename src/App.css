@@ -232,6 +232,7 @@ p {
   z-index: 4;
   padding: 1rem;
   border-radius: 1rem;
+  position: relative;
 }
 
 .event {
