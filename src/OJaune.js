@@ -9,12 +9,11 @@ export function OJaune() {
   return (
     <div>
       <div className="video-background">
-        <video autoPlay muted loop>
+        <video autoPlay muted loop playsInline>
           <source
             src="https://res.cloudinary.com/dnojcwwos/video/upload/v1737365383/DISTORSION_PROPA_FILM_v2_ezs4m1.mov"
             type="video/mp4"
           />
-          Your browser does not support the video tag.
         </video>
         <Reveal>
         <div className="O-Jaune">
